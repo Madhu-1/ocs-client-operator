@@ -76,3 +76,7 @@ ifeq ($(CLUSTER_ENV), openshift)
 else ifeq ($(CLUSTER_ENV), kubernetes)
 	RBAC_PROXY_IMG ?= $(KUBE_RBAC_PROXY_IMG)
 endif
+
+# csi-addons dependencies
+CSI_ADDONS_PACKAGE_NAME ?= csi-addons
+CSI_ADDONS_PACKAGE_VERSION ?= "v0.15.0"
