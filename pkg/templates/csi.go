@@ -87,9 +87,8 @@ var CSIOperatorConfigSpec = csiopv1a1.OperatorConfigSpec{
 				LogHostPath: "/var/lib/cephcsi",
 			},
 		},
-		AttachRequired:  ptr.To(true),
-		DeployCsiAddons: ptr.To(true),
-		FsGroupPolicy:   storagev1.FileFSGroupPolicy,
+		AttachRequired: ptr.To(true),
+		FsGroupPolicy:  storagev1.FileFSGroupPolicy,
 		ControllerPlugin: &csiopv1a1.ControllerPluginSpec{
 			Privileged: ptr.To(true),
 			Resources: csiopv1a1.ControllerPluginResourcesSpec{

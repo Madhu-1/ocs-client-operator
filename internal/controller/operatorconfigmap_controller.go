@@ -540,6 +540,7 @@ func (c *OperatorConfigMapReconciler) reconcileDelegatedCSI(storageClients *v1al
 		if err := c.own(rbdDriver); err != nil {
 			return fmt.Errorf("failed to own csi rbd driver: %v", err)
 		}
+		rbdDriver.Spec.DeployCsiAddons = ptr.To(true)
 		// only update during initial creation
 		if rbdDriver.UID == "" {
 			if len(customNodePluginTolerations) > 0 {
@@ -570,6 +571,7 @@ func (c *OperatorConfigMapReconciler) reconcileDelegatedCSI(storageClients *v1al
 		if err := c.own(cephFsDriver); err != nil {
 			return fmt.Errorf("failed to own csi cephfs driver: %v", err)
 		}
+		cephFsDriver.Spec.DeployCsiAddons = ptr.To(true)
 		// only update during initial creation
 		if cephFsDriver.UID == "" {
 			if len(customNodePluginTolerations) > 0 {
